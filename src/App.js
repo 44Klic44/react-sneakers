@@ -3,21 +3,33 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+   <header>
+    <div className='"headerleft'> 
+     <img width={40} height={40} src="/img/logo.web"/>
+    <div className='"headerinfo'>
+      <h3>React sneakers</h3>
+      <p>Магазин лучших кросовок</p>
+    </div> 
+    </div>
+  
+
+       <ul className='"headerRight'>
+        <li>
+          <svg/>
+          <span>1205 руб.</span>
+        </li>
+        <li>
+          <svg/>
+        </li>
+       </ul>
+
+   </header>
+   <div className='content'>
+<h1>Все кросовки</h1>
+
+   </div>
+   
     </div>
   );
 }
