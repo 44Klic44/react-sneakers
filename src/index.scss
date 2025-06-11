@@ -118,8 +118,11 @@ span{
 }
 .items{
   flex: 1;
+overflow: auto;
+margin-bottom: 40px;
+
 }
-.cartTotalBlock{
+ul{
   li{
     display: flex;
     align-items: flex-end;
@@ -205,7 +208,13 @@ b{
   cursor: pointer;
 }
 .cartTotalBlock {
+
+    
+
+
   ul {
+
+
     display: block;
     margin-bottom: 40px !important;
 
@@ -226,6 +235,21 @@ b{
   }
 
   .greenButton {
+ position: relative;
+
+
+ &:hover{
+  svg{
+    transform: translateX(5px);
+  }
+ }
+    svg{
+  transition: transform 0.2s ease-in-out;
+      position: absolute;
+      right: 30px;
+      top: 21px;
+    }
+
     position: relative;
 
     &:disabled {

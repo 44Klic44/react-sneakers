@@ -1,0 +1,35 @@
+function Header(){
+
+
+
+
+return(
+
+       <header className='d-flex justify-between align-center p-40'>
+    <div className='d-flex alighn-center headerleft'> 
+     <img width={40} height={40} src="https://static.tildacdn.com/tild3336-3038-4338-a664-363562396339/Frame_14.jpg" alt='logo'/>
+
+    <div className='"headerinfo'>
+      <h3 className='text-uppercase'>React sneakers</h3>
+      <p>Магазин лучших кросовок</p>
+    </div> 
+    </div>
+  
+
+       <ul className='"headerRight d-flex'>
+        <li className='mr-30 '>
+             <img width={18} height={18} src="https://static.tildacdn.com/tild6363-6234-4165-a637-653264323765/Frame_25.svg" alt='logo'/>
+
+          <span>1205 руб.</span>
+        </li>
+        <li>
+        
+ <img width={18} height={18} src="https://static.tildacdn.com/tild6465-3236-4530-b865-653531666532/profile_menu.svg" alt='logo'/>
+        </li>
+       </ul>
+
+   </header>
+)
+}
+
+export default Header;
