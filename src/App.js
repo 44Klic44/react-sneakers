@@ -4,7 +4,28 @@ import Card from './components/Card';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
 
-
+const arr =[
+  {
+    title:'Stylish node 10ml', 
+    price: 4000,
+    imageUrl: "https://static.tildacdn.com/stor3830-6632-4431-a664-353039626532/52817993.jpg",
+  },
+    {
+    title:'Stylish pink 10ml', 
+    price: 3700,
+    imageUrl: "https://static.tildacdn.com/stor3830-6632-4431-a664-353039626532/52817993.jpg",
+  },
+    {
+    title:'Stylish red 10ml', 
+    price: 3800,
+    imageUrl: "https://static.tildacdn.com/stor3830-6632-4431-a664-353039626532/52817993.jpg",
+  },
+    {
+    title:'Stylish browe 10ml', 
+    price: 3500,
+    imageUrl: "https://static.tildacdn.com/stor3830-6632-4431-a664-353039626532/52817993.jpg",
+  }
+]
 
 function App() {
   return (
@@ -28,10 +49,15 @@ function App() {
   </div>
 
 <div className='d-flex'>
-<Card></Card>
-<Card></Card>
-<Card></Card>
-<Card></Card>
+{arr.map((obj) => 
+<Card 
+title={obj.title} 
+price={obj.price} 
+imageUrl={obj.imageUrl}  >
+
+</Card>
+)}
+
 
 </div>
 
