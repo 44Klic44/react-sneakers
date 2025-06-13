@@ -53,7 +53,8 @@ function App() {
 <Card 
 title={obj.title} 
 price={obj.price} 
-imageUrl={obj.imageUrl}  >
+imageUrl={obj.imageUrl}
+onClick={() => console.log(obj)}  >
 
 </Card>
 )}
