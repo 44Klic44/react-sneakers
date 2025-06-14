@@ -1,8 +1,10 @@
 
+import { useState } from 'react';
 import './App.scss';
 import Card from './components/Card';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
+import React from 'react';
 
 const arr =[
   {
@@ -28,9 +30,26 @@ const arr =[
 ]
 
 function App() {
+
+// const [count , setCount] = useState(0);
+
+// const clikplus = () =>{
+// setCount(count + 1);
+// }
+
+// const clikmin = () =>{
+// setCount(count - 1);
+// }
+
+
+
+
+
   return (
     <div className="wrapper clear">
-
+      {/* <h1>{count}</h1>
+<button onClick={clikplus}>+</button>
+<button onClick={clikmin}>-</button> */}
      
 
 
@@ -54,7 +73,8 @@ function App() {
 title={obj.title} 
 price={obj.price} 
 imageUrl={obj.imageUrl}
-onClick={() => console.log(obj)}  >
+onFavorite={() => console.log('закладка добавили')}
+onPlus={() => console.log('нажали плюс')}  >
 
 </Card>
 )}
