@@ -1,5 +1,5 @@
 import styles from './Card.module.scss'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Card(props) {
   const [isAdded, setIsAdded] = useState(false);
@@ -7,6 +7,11 @@ function Card(props) {
   const onClickPlus = () => {
     setIsAdded(!isAdded); // Переключаем состояние между true и false
   }
+
+  React.useEffect(()=>{
+
+console.log('Изменилась переменная')
+  },[isAdded])
 
   return (
     <div className={styles.card}>

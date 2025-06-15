@@ -1,4 +1,4 @@
-function Header(){
+function Header(props){
 
 
 
@@ -17,7 +17,7 @@ return(
   
 
        <ul className='"headerRight d-flex'>
-        <li className='mr-30 '>
+        <li onClick={props.onClickCart} className='mr-30 cu-p'>
              <img width={18} height={18} src="https://static.tildacdn.com/tild6363-6234-4165-a637-653264323765/Frame_25.svg" alt='logo'/>
 
           <span>1205 руб.</span>

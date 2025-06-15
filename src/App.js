@@ -6,30 +6,30 @@ import Drawer from './components/Drawer';
 import Header from './components/Header';
 import React from 'react';
 
-const arr =[
-  {
-    title:'Stylish node 10ml', 
-    price: 4000,
-    imageUrl: "https://static.tildacdn.com/stor3830-6632-4431-a664-353039626532/52817993.jpg",
-  },
-    {
-    title:'Stylish pink 10ml', 
-    price: 3700,
-    imageUrl: "https://static.tildacdn.com/stor3830-6632-4431-a664-353039626532/52817993.jpg",
-  },
-    {
-    title:'Stylish red 10ml', 
-    price: 3800,
-    imageUrl: "https://static.tildacdn.com/stor3830-6632-4431-a664-353039626532/52817993.jpg",
-  },
-    {
-    title:'Stylish browe 10ml', 
-    price: 3500,
-    imageUrl: "https://static.tildacdn.com/stor3830-6632-4431-a664-353039626532/52817993.jpg",
-  }
-]
+
+
+
+
+
+
 
 function App() {
+  const [items, setItems] = useState([ ])
+const [cartOpened, setCardOpened] = useState(false);
+
+
+React.useEffect(()=>{
+
+fetch('https://684e8a9ef0c9c9848d286908.mockapi.io/items').then(response =>{
+  return response.json();
+}).then(json=>{
+  setItems(json)
+});
+
+},[])
+
+
+
 
 // const [count , setCount] = useState(0);
 
@@ -53,10 +53,10 @@ function App() {
      
 
 
-<Drawer></Drawer>
-<Header></Header>
+{cartOpened && <Drawer onClose={()=> setCardOpened(false)}></Drawer> }
+<Header onClickCart={()=> setCardOpened(true)} ></Header>
 
-<div className='content p-40'>
+<div className='content  p-40'>
    <div className='d-flex align-center justify-between content mb-40  '>
 <h1 className=''>Все пигменты</h1>
 
@@ -67,14 +67,14 @@ function App() {
 
   </div>
 
-<div className='d-flex'>
-{arr.map((obj) => 
+<div className='d-flex flex-wrap justify-between'>
+{items.map((obj) => 
 <Card 
 title={obj.title} 
 price={obj.price} 
 imageUrl={obj.imageUrl}
-onFavorite={() => console.log('закладка добавили')}
-onPlus={() => console.log('нажали плюс')}  >
+onFavorite={() => console.log('Избранное добавили')}
+onPlus={() => console.log('Нажали плюс')}  >
 
 </Card>
 )}
