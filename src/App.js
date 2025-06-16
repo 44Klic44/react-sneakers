@@ -15,6 +15,7 @@ import React from 'react';
 
 function App() {
   const [items, setItems] = useState([ ])
+    const [cartitems, setCartItems] = useState([ ])
 const [cartOpened, setCardOpened] = useState(false);
 
 
@@ -43,6 +44,12 @@ fetch('https://684e8a9ef0c9c9848d286908.mockapi.io/items').then(response =>{
 
 
 
+const onAddToCart = (obj) =>{
+ setCartItems([...cartitems, obj]);
+
+};
+
+ console.log(cartitems);
 
 
   return (
@@ -53,7 +60,7 @@ fetch('https://684e8a9ef0c9c9848d286908.mockapi.io/items').then(response =>{
      
 
 
-{cartOpened && <Drawer onClose={()=> setCardOpened(false)}></Drawer> }
+{cartOpened && <Drawer items={cartitems} onClose={()=> setCardOpened(false)}></Drawer> }
 <Header onClickCart={()=> setCardOpened(true)} ></Header>
 
 <div className='content  p-40'>
@@ -74,7 +81,7 @@ title={obj.title}
 price={obj.price} 
 imageUrl={obj.imageUrl}
 onFavorite={() => console.log('Избранное добавили')}
-onPlus={() => console.log('Нажали плюс')}  >
+onPlus={(item) => onAddToCart(item)}  >
 
 </Card>
 )}
