@@ -32,6 +32,10 @@ axios.get('https://684e8a9ef0c9c9848d286908.mockapi.io/items').then(res =>{
   setItems(res.data)
 })
 
+axios.get('https://684e8a9ef0c9c9848d286908.mockapi.io/cart').then(res =>{
+  setCartItems(res.data)
+})
+
 },[])
 
 
@@ -63,6 +67,11 @@ axios.post('https://684e8a9ef0c9c9848d286908.mockapi.io/cart', obj).then(res =>{
 
 };
 
+const onRemoveItem = (id) =>{
+  axios.delete(`https://684e8a9ef0c9c9848d286908.mockapi.io/cart/${id}`);
+ setCartItems((prev) => prev.filter(item => item.id !== id ));
+}
+
  console.log(cartitems);
 
 
@@ -74,7 +83,7 @@ axios.post('https://684e8a9ef0c9c9848d286908.mockapi.io/cart', obj).then(res =>{
      
 
 
-{cartOpened && <Drawer items={cartitems} onClose={()=> setCardOpened(false)}></Drawer> }
+{cartOpened && <Drawer items={cartitems} onClose={()=> setCardOpened(false)} onRemover={ onRemoveItem}></Drawer> }
 <Header onClickCart={()=> setCardOpened(true)} ></Header>
 
 <div className='content  p-40'>
