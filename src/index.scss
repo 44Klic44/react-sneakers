@@ -71,12 +71,16 @@ header {
   cursor: pointer;
 }
 
+
 .search-block{
+  position: relative;
   border: 1px solid #f8f8f8; 
   input{
     border: 0;
     padding: 10px;
   }
+
+
 }
 
 h5{
