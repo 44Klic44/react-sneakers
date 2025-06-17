@@ -5,7 +5,7 @@ import Card from './components/Card';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
 import React from 'react';
-
+import axios from 'axios';
 
 
 
@@ -19,16 +19,22 @@ function App() {
 const [searchValue, setsearchValue] = useState('');
 const [cartOpened, setCardOpened] = useState(false);
 
-
+// fetch запрос на сервер с товарами
 React.useEffect(()=>{
 
-fetch('https://684e8a9ef0c9c9848d286908.mockapi.io/items').then(response =>{
-  return response.json();
-}).then(json=>{
-  setItems(json)
-});
+// fetch('https://684e8a9ef0c9c9848d286908.mockapi.io/items').then(response =>{
+//   return response.json();
+// }).then(json=>{
+//   setItems(json)
+// });
+
+axios.get('https://684e8a9ef0c9c9848d286908.mockapi.io/items').then(res =>{
+  setItems(res.data)
+})
 
 },[])
+
+
 
 
 const  onChangeSearchInput = (event) =>{
@@ -52,6 +58,7 @@ setsearchValue(event.target.value )
 
 
 const onAddToCart = (obj) =>{
+axios.post('https://684e8a9ef0c9c9848d286908.mockapi.io/cart', obj).then(res =>{})
  setCartItems([...cartitems, obj]);
 
 };
