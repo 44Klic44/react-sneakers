@@ -56,8 +56,8 @@ function Drawer({onClose, onRemover, items =[]}){
       {/* <h2>{title}</h2> */}
       {/* <p className="opacity-6">{description}</p> */}
        <p className="opacity-6">Добавьте хотябы один товар</p>
-      <button  className="greenButton">
-        <img сlassNam=" strelka"  width={14} src="https://static.tildacdn.com/tild3338-6566-4964-a665-356331323563/Group_1.png" alt="Arrow" />
+      <button  onClick={onClose} className="greenButton">
+        <img  сlassNam=" strelka"  width={14} src="https://static.tildacdn.com/tild3338-6566-4964-a665-356331323563/Group_1.png" alt="Arrow" />
         Вернуться назад
       </button>
     </div>
