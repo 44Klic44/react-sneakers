@@ -17,7 +17,7 @@ function Drawer({onClose, onRemover, items =[]}){
 {
   items.length > 0  ? <div className='items'>
 {items.map((obj) =>(
-<div className='cartItem mb-20 d-flex align-center justify-between'>
+<div key={obj.id} className='cartItem mb-20 d-flex align-center justify-between'>
   
 <div 
   className='cartItemImg '
