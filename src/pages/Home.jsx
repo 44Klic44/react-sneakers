@@ -2,6 +2,7 @@ import React from 'react';
 
 import Card from '../components/Card/index';
 
+
 function Home({
   items,
   searchValue,
@@ -9,24 +10,26 @@ function Home({
   onChangeSearchInput,
   onAddFavorite,
   onAddToCart,
-  isLoading,
+  cartItems,
+  favorites,
 }) {
   const renderItems = () => {
-    const filtredItems = items.filter((item) =>
+    const filteredItems = items.filter((item) =>
       item.title.toLowerCase().includes(searchValue.toLowerCase()),
     );
-    return (isLoading ? [...Array(8)] : filtredItems).map((item, index) => (
+
+    return filteredItems.map((item) => (
       <Card
-        key={index}
-        onFavorite={(obj) => onAddFavorite(obj)}
-        onPlus={(obj) => onAddToCart(obj)}
-        loading={isLoading}
+        key={item.id}
+        onFavorite={onAddFavorite}
+        onPlus={onAddToCart}
+        added={cartItems.some((obj) => Number(obj.parentId) === Number(item.id))}
+        favorited={favorites.some((obj) => Number(obj.parentId) === Number(item.id))}
         {...item}
       />
     ));
   };
-
-  return (
+ return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
         <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
@@ -47,5 +50,6 @@ function Home({
     </div>
   );
 }
+
 
 export default Home;
