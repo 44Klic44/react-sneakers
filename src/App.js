@@ -70,25 +70,48 @@ function App() {
     }
   };
 
-  const onAddFavorite = async (obj) => {
-    try {
-      const findItem = favorites.find((favObj) => favObj.parentId === obj.id);
+const onAddFavorite = async (obj) => {
+  try {
+    // Нормализуем ID для сравнения (преобразуем в число)
+    const itemId = Number(obj.id);
+    
+    // Ищем в текущих избранных как по parentId, так и по id (для совместимости)
+    const existingItem = favorites.find(item => 
+      Number(item.parentId) === itemId || Number(item.id) === itemId
+    );
+
+    if (existingItem) {
+      // Удаляем по реальному ID записи в избранном
+      await axios.delete(`https://6852cf830594059b23cf2fe9.mockapi.io/favorites/${existingItem.id}`);
       
-      if (findItem) {
-        await axios.delete(`https://6852cf830594059b23cf2fe9.mockapi.io/favorites/${findItem.id}`);
-        setFavorites((prev) => prev.filter((item) => item.parentId !== obj.id));
-      } else {
-        const { data } = await axios.post('https://6852cf830594059b23cf2fe9.mockapi.io/favorites', {
+      // Обновляем состояние, удаляя все версии элемента (по parentId и id)
+      setFavorites(prev => prev.filter(item => 
+        Number(item.parentId) !== itemId && Number(item.id) !== itemId
+      ));
+    } else {
+      // Создаем новую запись с явным указанием parentId
+      const { data } = await axios.post(
+        'https://6852cf830594059b23cf2fe9.mockapi.io/favorites', 
+        {
           ...obj,
-          parentId: obj.id
-        });
-        setFavorites((prev) => [...prev, data]);
-      }
-    } catch (error) {
-      alert('Не удалось добавить в избранное');
-      console.error(error);
+          parentId: itemId, // Гарантированно число
+          id: undefined // Позволяем серверу сгенерировать новый ID
+        }
+      );
+      
+      // Добавляем в состояние, предварительно проверив на дубликаты
+      setFavorites(prev => {
+        const alreadyExists = prev.some(item => 
+          Number(item.parentId) === itemId || Number(item.id) === data.id
+        );
+        return alreadyExists ? prev : [...prev, data];
+      });
     }
-  };
+  } catch (error) {
+    console.error('Ошибка при обновлении избранного:', error);
+    alert('Не удалось обновить избранное. Пожалуйста, попробуйте позже.');
+  }
+};
 
   return (
     <div className="wrapper clear">
