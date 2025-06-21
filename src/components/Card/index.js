@@ -1,7 +1,8 @@
 import styles from './Card.module.scss'
 import React, { useEffect, useState } from 'react'
+import ContentLoader from "react-content-loader"
 
-function Card({ id, imageUrl, price, title, onFavorite, onPlus, favorited = false, added = false }) {
+function Card({ id, imageUrl, price, title, onFavorite, onPlus, favorited = false, added = false, loading = false }) {
   const [isFavorite, setIsFavorite] = useState(favorited);
 
   const onClickPlus = () => {
@@ -18,8 +19,28 @@ function Card({ id, imageUrl, price, title, onFavorite, onPlus, favorited = fals
   };
 
   return (
+
+
+
     <div className={styles.card}>
-      <div className={styles.favorite} onClick={onClickFavorite}>
+       {
+        loading ? 
+         <ContentLoader 
+    speed={2}
+    width={150}
+    height={260}
+    viewBox="0 0 150 260"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb"
+   
+  >
+    <rect x="0" y="133" rx="3" ry="3" width="150" height="15" /> 
+    <rect x="0" y="153" rx="3" ry="3" width="100" height="15" /> 
+    <rect x="0" y="198" rx="3" ry="3" width="80" height="25" /> 
+    <rect x="113" y="198" rx="3" ry="3" width="32" height="25" /> 
+    <rect x="0" y="6" rx="3" ry="3" width="150" height="112" />
+  </ContentLoader> : <div>
+     <div className={styles.favorite} onClick={onClickFavorite}>
         <img
           width={30}
           height={30}
@@ -28,7 +49,7 @@ function Card({ id, imageUrl, price, title, onFavorite, onPlus, favorited = fals
         />
       </div>
 
-      <img width={133} height={112} src={imageUrl} alt={title} />
+      <img width='100%' height='100%' src={imageUrl} alt={title} />
       <h5>{title}</h5>
       <div className='d-flex justify-between align-center'>
         <div className='d-flex flex-column'>
@@ -47,6 +68,11 @@ function Card({ id, imageUrl, price, title, onFavorite, onPlus, favorited = fals
           />
         )}
       </div>
+  </div>
+       }
+
+
+     
     </div>
   );
 }

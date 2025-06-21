@@ -1,35 +1,36 @@
 import React from 'react';
-
 import Card from '../components/Card/index';
 
-
 function Home({
-  items,
+  items = [],
   searchValue,
   setSearchValue,
   onChangeSearchInput,
   onAddFavorite,
   onAddToCart,
-  cartItems,
-  favorites,
+  cartItems = [],
+  favorites = [],
+  isLoading = false
 }) {
   const renderItems = () => {
     const filteredItems = items.filter((item) =>
-      item.title.toLowerCase().includes(searchValue.toLowerCase()),
+      item.title.toLowerCase().includes(searchValue.toLowerCase())
     );
 
-    return filteredItems.map((item) => (
+    return (isLoading ? [...Array(8)] : filteredItems).map((item, index) => (
       <Card
-        key={item.id}
+        key={item?.id || index}
         onFavorite={onAddFavorite}
         onPlus={onAddToCart}
-        added={cartItems.some((obj) => Number(obj.parentId) === Number(item.id))}
-        favorited={favorites.some((obj) => Number(obj.parentId) === Number(item.id))}
-        {...item}
+        added={item && cartItems.some((obj) => Number(obj.parentId) === Number(item.id))}
+        favorited={item && favorites.some((obj) => Number(obj.parentId) === Number(item.id))}
+        {...(item || {})}
+        loading={isLoading}
       />
     ));
   };
- return (
+
+  return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
         <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
@@ -43,13 +44,18 @@ function Home({
               alt="Clear"
             />
           )}
-          <input onChange={onChangeSearchInput} value={searchValue} placeholder="Поиск..." />
+          <input 
+            onChange={onChangeSearchInput} 
+            value={searchValue} 
+            placeholder="Поиск..." 
+          />
         </div>
       </div>
-      <div className="d-flex flex-wrap">{renderItems()}</div>
+      <div className="d-flex flex-wrap">
+        {renderItems()}
+      </div>
     </div>
   );
 }
-
 
 export default Home;
