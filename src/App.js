@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import './App.scss';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
@@ -8,6 +8,8 @@ import axios from 'axios';
 import {Route, Routes} from 'react-router-dom'
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
+import AppContext from './context';
+
 
 
 function App() {
@@ -44,6 +46,11 @@ function App() {
 
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
+  };
+
+
+    const isItemAdded = (id) => {
+   return cartItems.some((obj) => Number(obj.id) === Number(id));
   };
 
   const onAddToCart = async (obj) => {
@@ -120,7 +127,8 @@ const onAddFavorite = async (obj) => {
 };
 
   return (
-    <div className="wrapper clear">
+  <AppContext.Provider value={{items, cartItems, favorites, isItemAdded }}>
+      <div className="wrapper clear">
       {cartOpened && (
         <Drawer 
           items={cartItems} 
@@ -149,10 +157,11 @@ const onAddFavorite = async (obj) => {
         />
        <Route
   path="/favorites"
-  element={<Favorites items={favorites} onAddFavorite={onAddFavorite} onAddToCart={onAddToCart} />}
+  element={<Favorites  onAddFavorite={onAddFavorite} onAddToCart={onAddToCart} />}
 />
       </Routes>
     </div>
+   </AppContext.Provider>
   );
 }
 export default App;

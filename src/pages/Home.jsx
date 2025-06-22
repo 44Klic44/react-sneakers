@@ -1,7 +1,9 @@
-import React from 'react';
-import Card from '../components/Card/index';
 
+import Card from '../components/Card/index';
+import AppContext from '../context';
+import React, { useContext } from 'react';
 function Home({
+
   items = [],
   searchValue,
   setSearchValue,
@@ -12,6 +14,10 @@ function Home({
   favorites = [],
   isLoading = false
 }) {
+
+
+  const { isItemAdded } = useContext(AppContext); // Деструктурируем favorites из контекста
+
   const renderItems = () => {
     const filteredItems = items.filter((item) =>
       item.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -22,7 +28,7 @@ function Home({
         key={item?.id || index}
         onFavorite={onAddFavorite}
         onPlus={onAddToCart}
-        added={item && cartItems.some((obj) => Number(obj.parentId) === Number(item.id))}
+        added={isItemAdded(item && item.id)}
         favorited={item && favorites.some((obj) => Number(obj.parentId) === Number(item.id))}
         {...(item || {})}
         loading={isLoading}
