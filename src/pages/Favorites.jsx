@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import Card from '../components/Card/index';
-import  AppContext  from '../context';
+import AppContext from '../context';
 
-function Favorites({  onAddFavorite, onAddToCart }) {
-
-  const { favorites } = useContext(AppContext); // Деструктурируем favorites из контекста
+function Favorites() {
+  const { favorites, onAddFavorite, onAddToCart } = useContext(AppContext);
 
   return (
     <div className="content p-40">
@@ -16,14 +15,10 @@ function Favorites({  onAddFavorite, onAddToCart }) {
         {favorites.map((item) => (
           <Card
             key={item.id}
-            id={item.id}
+            id={item.parentId || item.id}
             title={item.title}
             price={item.price}
             imageUrl={item.imageUrl}
-            favorited={true}
-            onFavorite={onAddFavorite}
-            onPlus={onAddToCart} // Добавляем эту строку
-            added={false}
           />
         ))}
       </div>

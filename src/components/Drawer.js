@@ -1,13 +1,50 @@
-function Drawer({ onClose, onRemove, items = [] }) {
+import React, { useContext, useState } from 'react';
+import AppContext from '../context';
+import axios from 'axios';
+import Info from './info';
+
+function Drawer({ onClose }) {
+  const { cartItems, setCartItems } = useContext(AppContext);
+  const [isOrderComplete, setIsOrderComplete] = useState(false);
+  const [orderId] = useState(Math.floor(Math.random() * 1000));
+
   // Вычисляем общую сумму и налог
-  const totalPrice = items.reduce((sum, obj) => sum + Number(obj.price), 0);
+  const totalPrice = cartItems.reduce((sum, obj) => sum + Number(obj.price), 0);
   const tax = Math.round(totalPrice * 0.05);
+
+  const onRemoveItem = async (id) => {
+    try {
+      await axios.delete(`https://684e8a9ef0c9c9848d286908.mockapi.io/cart/${id}`);
+      setCartItems(prev => prev.filter(item => item.id !== id));
+    } catch (error) {
+      alert('Не удалось удалить товар');
+      console.error(error);
+    }
+  };
+
+  const onClickOrder = async () => {
+    try {
+      // Удаляем все товары из корзины на сервере
+      await Promise.all(
+        cartItems.map(item => 
+          axios.delete(`https://684e8a9ef0c9c9848d286908.mockapi.io/cart/${item.id}`)
+        )
+      );
+      
+      // Очищаем корзину в состоянии
+      setCartItems([]);
+      setIsOrderComplete(true);
+    } catch (error) {
+      alert('Не удалось оформить заказ');
+      console.error(error);
+    }
+  };
 
   return (
     <div className='overlay'>
       <div className='drawer'>
         <h2 className='d-flex justify-between'>
-          Корзина
+          {isOrderComplete ? 'Заказ оформлен' : 'Корзина'}
           <svg 
             className='removeBtn cu-p' 
             onClick={onClose} 
@@ -22,9 +59,15 @@ function Drawer({ onClose, onRemove, items = [] }) {
           </svg>
         </h2>
 
-        {items.length > 0 ? (
-          <div className='items'>
-            {items.map((obj) => (
+        {isOrderComplete ? (
+          <Info
+            image="https://static.tildacdn.com/tild3937-6134-4632-b266-306132356266/success-order.png"
+            title={`Заказ #${orderId} оформлен!`}
+            description="Ваш заказ скоро будет передан курьерской доставке"
+          />
+        ) : cartItems.length > 0 ? (
+          <div className='items d-flex flex-column'>
+            {cartItems.map((obj) => (
               <div key={obj.id} className='cartItem mb-20 d-flex align-center justify-between'>
                 <div 
                   className='cartItemImg'
@@ -37,7 +80,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
                 </div>
 
                 <svg 
-                  onClick={() => onRemove(obj.id)} 
+                  onClick={() => onRemoveItem(obj.id)} 
                   className='removeBtn' 
                   width="32" 
                   height="32" 
@@ -52,28 +95,14 @@ function Drawer({ onClose, onRemove, items = [] }) {
             ))}
           </div>
         ) : (
-          <div className="cartEmpty d-flex align-center justify-center flex-column flex">
-            <img 
-              className="mb-20" 
-              width="120px" 
-              src="https://static.tildacdn.com/tild6635-6562-4535-b263-346234346637/Group_117_1.png" 
-              alt="Empty" 
-            />
-            <h2>Корзина Пустая</h2>
-            <p className="opacity-6">Добавьте хотя бы один товар</p>
-            <button onClick={onClose} className="greenButton">
-              <img 
-                className="strelka" 
-                width={14} 
-                src="https://static.tildacdn.com/tild3338-6566-4964-a665-356331323563/Group_1.png" 
-                alt="Arrow" 
-              />
-              Вернуться назад
-            </button>
-          </div>
+          <Info
+            image="https://static.tildacdn.com/tild6635-6562-4535-b263-346234346637/Group_117_1.png"
+            title="Корзина пустая"
+            description="Добавьте хотя бы один товар"
+          />
         )}
 
-        {items.length > 0 && (
+        {!isOrderComplete && cartItems.length > 0 && (
           <div className='cartTotalBlock'> 
             <ul>
               <li>
@@ -88,7 +117,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
               </li>
             </ul>
 
-            <button className='greenButton'>
+            <button onClick={onClickOrder} className='greenButton'>
               Оформить заказ 
               <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 7H14.7143" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
