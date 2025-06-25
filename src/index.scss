@@ -226,7 +226,10 @@ b{
 
   .greenButton {
  position: relative;
-
+ & :disabled {
+  background-color: #e7f6ff;
+  cursor: default;
+ }
 
  &:hover{
   svg{
