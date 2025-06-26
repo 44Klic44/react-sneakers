@@ -27,43 +27,34 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
   };
 
   const onClickOrder = async () => {
-
-
-
-
-    try {
-      setisLoading(true);
-          const {data} = await axios.post('https://6852cf830594059b23cf2fe9.mockapi.io/order', {items: cartItems});
-setisOrderId(data.id);
-//  
-      // Удаляем все товары из корзины на сервере
-      await Promise.all(
-           
-        cartItems.map(item => 
-          axios.delete(`https://684e8a9ef0c9c9848d286908.mockapi.io/cart/${item.id}`)
-          
-        )
-      );
-      
-      // Очищаем корзину в состоянии
-      setCartItems([]);
-      
-      for(let i=0; i < cartItems.length; i++){
-            const item = cartItems[i];
-            axios.delete('https://684e8a9ef0c9c9848d286908.mockapi.io/cart/', [] );
-            await delay(1000);
-      }
-// cartItems.forEach(item => {
-//   axios.delete('https://684e8a9ef0c9c9848d286908.mockapi.io/cart/' + item.id );
-// })
-
-      setIsOrderComplete(true);
-    } catch (error) {
-      alert('Не удалось оформить заказ');
-      console.error(error);
-    }
+  try {
+    setisLoading(true);
+    
+    // Создаем заказ
+    const { data } = await axios.post('https://6852cf830594059b23cf2fe9.mockapi.io/order', { 
+      items: cartItems 
+    });
+    
+    setisOrderId(data.id);
+    
+    // Удаляем все товары из корзины на сервере
+    await Promise.all(
+      cartItems.map(item => 
+        axios.delete(`https://684e8a9ef0c9c9848d286908.mockapi.io/cart/${item.id}`)
+      )
+    );
+    
+    // Очищаем корзину в состоянии
+    setCartItems([]);
+    
+    setIsOrderComplete(true);
+  } catch (error) {
+    alert('Не удалось оформить заказ');
+    console.error(error);
+  } finally {
     setisLoading(false);
-  };
+  }
+};
 
   return (
     <div className='overlay'>
