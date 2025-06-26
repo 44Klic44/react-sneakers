@@ -1,10 +1,12 @@
+import { useContext } from 'react';
 import {Route, Routes, Link, Links} from 'react-router-dom'
+import AppContext from '../context';
 
 function Header(props){
 
+const {cartItems} = useContext(AppContext);
 
-
-
+const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
 return(
 
        <header className='d-flex justify-between align-center p-40'>
@@ -26,7 +28,7 @@ return(
         <li onClick={props.onClickCart} className='mr-30 cu-p'>
              <img width={18} height={18} src="https://static.tildacdn.com/tild6363-6234-4165-a637-653264323765/Frame_25.svg" alt='logo'/>
 
-          <span>1205 руб.</span>
+          <span>{totalPrice} руб.</span>
         </li>
 
 <Link to='/favorites'>
@@ -39,10 +41,11 @@ return(
           
 
 
-
+<Link to='/orders'>
         <li>
  <img width={18} height={18} src="https://static.tildacdn.com/tild6465-3236-4530-b865-653531666532/profile_menu.svg" alt='logo'/>
         </li>
+        </Link>
        </ul>
 
    </header>

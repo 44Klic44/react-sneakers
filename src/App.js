@@ -8,6 +8,8 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import AppContext from './context';
+import Orders from './pages/Order';
+
 
 function App() {
   const [items, setItems] = useState([]);
@@ -148,7 +150,15 @@ function App() {
             path="/favorites"
             element={<Favorites />}
           />
+
+           <Route
+            path="/orders"
+            element={<Orders />}
+          />
         </Routes>
+
+        
+       
       </div>
     </AppContext.Provider>
   );
