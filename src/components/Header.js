@@ -15,11 +15,11 @@ return(
     <div className='d-flex alighn-center headerleft'> 
      
     
-     <img width={40} height={40} src="https://static.tildacdn.com/tild3336-3038-4338-a664-363562396339/Frame_14.jpg" alt='logo'/>
+     <img width={80} height={40} src="https://static.tildacdn.com/tild3438-6135-4463-b365-613830336265/norootpng.webp" alt='logo'/>
 
     <div className='"headerinfo'>
-      <h3 className='text-uppercase'>React sneakers</h3>
-      <p>Магазин лучших кросовок</p>
+      <h3 className='text-uppercase'>Профессиональная косметика</h3>
+      <p>для перманентного макияжа</p>
     </div> 
     </div>
   </Link>
