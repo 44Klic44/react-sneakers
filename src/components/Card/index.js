@@ -49,11 +49,11 @@ function Card({
           {!isOrderItem && (
             <div className={styles.favorite} onClick={onClickFavorite}>
               <img
-                width={30}
-                height={30}
+                width={18}
+                height={17}
                 src={isItemFavorited(id) ? 
-                  "https://static.tildacdn.com/tild6134-3339-4465-b262-343561646137/Group_90.png" : 
-                  "https://static.tildacdn.com/tild3630-3833-4561-b834-396432383032/Group_90_1.png"} 
+                  "https://static.tildacdn.com/tild6664-6461-4436-b366-633033663338/free-icon-font-heart.png" : 
+                  "https://static.tildacdn.com/tild3834-3830-4337-b365-333965363034/free-icon-font-heart.png"} 
                 alt="Favorite"
               />
             </div>
@@ -69,13 +69,13 @@ function Card({
 
             {!isOrderItem && onAddToCart && (
               <img
-                width={30}
-                height={30}
+                width={20}
+                height={20}
                 className={styles.plus} 
                 onClick={onClickPlus} 
                 src={isItemAdded(id) ? 
-                  "https://static.tildacdn.com/tild6336-3961-4137-a437-313339373337/Group_95.png" : 
-                  "https://static.tildacdn.com/tild3661-3362-4531-b636-636331643038/Group_91_1.png"} 
+                  "https://static.tildacdn.com/tild6163-6465-4766-b739-333034383036/free-icon-font-check.png" : 
+                  "https://static.tildacdn.com/tild3262-6134-4633-a139-303330626234/free-icon-font-check.png"} 
                 alt="Add to cart"
               />
             )}

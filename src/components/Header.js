@@ -26,7 +26,7 @@ return(
 
        <ul className='"headerRight d-flex'>
         <li onClick={props.onClickCart} className='mr-30 cu-p'>
-             <img width={18} height={18} src="https://static.tildacdn.com/tild6363-6234-4165-a637-653264323765/Frame_25.svg" alt='logo'/>
+             <img width={20} height={18} src="https://static.tildacdn.com/tild6537-3430-4262-a161-653339373532/free-icon-font-shopp.png" alt='logo'/>
 
           <span>{totalPrice} руб.</span>
         </li>
@@ -34,7 +34,7 @@ return(
 <Link to='/favorites'>
   <li className="mr-20 cu-p"> 
      
- <img width={20} height={18} src="https://static.tildacdn.com/tild3762-6464-4662-b438-616638383666/zmdi_favorite-outlin.png" alt='logo'/>
+ <img width={20} height={18} src="https://static.tildacdn.com/tild3834-3830-4337-b365-333965363034/free-icon-font-heart.png" alt='logo'/>
         </li>
         </Link>
 
@@ -43,7 +43,7 @@ return(
 
 <Link to='/orders'>
         <li>
- <img width={18} height={18} src="https://static.tildacdn.com/tild6465-3236-4530-b865-653531666532/profile_menu.svg" alt='logo'/>
+ <img width={20} height={18} src="https://static.tildacdn.com/tild3437-3538-4165-b837-306665356430/free-icon-font-emplo.png" alt='logo'/>
         </li>
         </Link>
        </ul>
