@@ -43,7 +43,7 @@ return(
 
 <Link to='/orders'>
         <li>
- <img width={20} height={18} src="https://static.tildacdn.com/tild3437-3538-4165-b837-306665356430/free-icon-font-emplo.png" alt='logo'/>
+ <img width={20} height={18} src="https://static.tildacdn.com/tild3234-3035-4661-b132-376636636236/free-icon-user-51158.png" alt='logo'/>
         </li>
         </Link>
        </ul>

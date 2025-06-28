@@ -11,17 +11,25 @@ function Favorites() {
         <h1>Мои закладки</h1>
       </div>
 
-      <div className="d-flex flex-wrap">
-        {favorites.map((item) => (
-          <Card
-            key={item.id}
-            id={item.parentId || item.id}
-            title={item.title}
-            price={item.price}
-            imageUrl={item.imageUrl}
-          />
-        ))}
-      </div>
+      {favorites.length > 0 ? (
+        <div className="d-flex flex-wrap">
+          {favorites.map((item) => (
+            <Card
+              key={item.id}
+              id={item.parentId || item.id}
+              title={item.title}
+              price={item.price}
+              imageUrl={item.imageUrl}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-favorites">
+          <img src="https://static.tildacdn.com/tild3834-3830-4337-b365-333965363034/free-icon-font-heart.png" alt="Empty favorites" />
+          <h3>Закладок нет </h3>
+          <p>Вы ничего не добавляли в закладки</p>
+        </div>
+      )}
     </div>
   );
 }
