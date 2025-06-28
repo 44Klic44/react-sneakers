@@ -157,12 +157,7 @@ ul{
     margin-bottom: 20px;
   }
   div{
-    flex: 1;
-    height: 1px;
-    border-bottom: 1px dashed #dfdfdf;
-    position: relative;
-    top: -4px;
-    margin: 0 7px;
+  
   }
 }
 
@@ -375,4 +370,28 @@ b{
   100% {
     opacity: 1;
   }
+}
+
+.cart-icon-wrapper, 
+.favorites-icon-wrapper {
+  position: relative;
+  // margin-right: 8px;
+}
+
+.cart-count,
+.favorites-count {
+  position: absolute;
+    top: -8px;
+    right: 6px;
+  background: #ff6b6b;
+ color: white;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: bold;
+    font-weight: 400;
 }
