@@ -38,7 +38,7 @@ function Orders() {
         orders.map((order, index) => (
           <div key={index} className="mb-40">
             <h2>Заказ #{order.id}</h2>
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap contain-card">
               {order.items.map((item, itemIndex) => (
                 <Card 
                   key={itemIndex} 

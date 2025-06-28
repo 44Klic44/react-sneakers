@@ -48,7 +48,7 @@ function Card({
         <div>
           {!isOrderItem && (
             <div className={styles.favorite} onClick={onClickFavorite}>
-              <img
+              <img className='iconFavorite'
                 width={18}
                 height={17}
                 src={isItemFavorited(id) ? 
@@ -60,18 +60,18 @@ function Card({
           )}
 
           <img width='100%' height='100%' src={imageUrl} alt={title} />
-          <h5>{title}</h5>
+          <h5 className='cena'>{title}</h5>
           <div className='d-flex justify-between align-center'>
-            <div className='d-flex flex-column'>
-              <span>Цена:</span>
-              <b>{price} руб.</b>
+            <div className='d-flex flex-column cena'>
+              <span >Цена:</span>
+              <b >{price} руб.</b>
             </div>
 
             {!isOrderItem && onAddToCart && (
-              <img
+              <img 
                 width={20}
                 height={20}
-                className={styles.plus} 
+                className={styles.plus } 
                 onClick={onClickPlus} 
                 src={isItemAdded(id) ? 
                   "https://static.tildacdn.com/tild6163-6465-4766-b739-333034383036/free-icon-font-check.png" : 

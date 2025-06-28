@@ -25,7 +25,7 @@ function Home({
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
-        <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
+        <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все пигменты'}</h1>
         <div style={{ alignItems: 'center' }} className="search-block d-flex">
           <img  width={25} height={25} src="https://static.tildacdn.com/tild3966-3631-4932-a335-333866306164/free-icon-search-241.png" alt="Search" />
           {searchValue && (
