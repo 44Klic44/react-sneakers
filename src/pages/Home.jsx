@@ -1,5 +1,6 @@
 import Card from '../components/Card/index';
 import React from 'react';
+import SimpleSlider from '../components/Slider';
 
 function Home({
   items = [],
@@ -24,6 +25,7 @@ function Home({
 
   return (
     <div className="content p-40">
+      <SimpleSlider/>
       <div className="d-flex align-center justify-between mb-40">
         <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все пигменты'}</h1>
         <div style={{ alignItems: 'center' }} className="search-block d-flex">

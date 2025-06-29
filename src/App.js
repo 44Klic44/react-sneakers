@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import AppContext from './context';
 import Orders from './pages/Order';
-
+import SimpleSlider from './components/Slider';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -133,10 +133,13 @@ function App() {
         )}
         <Header onClickCart={() => setCartOpened(true)} />
         
+
+        
         <Routes>
           <Route
             path="/"
             element={
+              
               <Home
                 items={items}
                 searchValue={searchValue}
