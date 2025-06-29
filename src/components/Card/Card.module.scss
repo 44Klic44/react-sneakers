@@ -1,26 +1,25 @@
-
 .card {
   border: 1px solid #f8f8f8;
-     padding: 0px 0px 30px 0px;
-    width: 320px;
+  padding: 0px 0px 30px 0px;
+  width: 320px;
   border-radius: 0px;
   margin-bottom: 30px;
   justify-content: space-between;
- margin-right: 20px;
-  transition: box-shadow 0.2 ease-in-out, transform 0.2s ease-in-out;
-
-  .plus{
-    cursor: pointer;
-    margin-right: 15px;
-  }
-  
-  &:hover{
-   box-shadow: 0px 20px 30px rgba($color: #272727, $alpha: 0.1);
-   transform: translateY(-5px);
-  }
+  margin-right: 20px;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.favorite{
+.card:hover {
+  box-shadow: 0px 20px 30px rgba(39, 39, 39, 0.1);
+  transform: translateY(-5px);
+}
+
+.plus {
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.favorite {
   position: absolute;
   cursor: pointer;
 }
