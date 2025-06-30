@@ -21,13 +21,13 @@ const CustomPrevArrow = ({ onClick }) => (
     }}
   >
     <img 
-      src="https://static.tildacdn.com/tild3862-3436-4662-a266-656561626361/free-icon-arrow-righ.png" 
+      src="https://static.tildacdn.com/tild6461-3736-4666-b161-373731393831/icons8-----2-100_1.png" 
       alt="Previous"
       style={{ 
-        transform: "rotate(180deg)", 
+        transform: "rotate(0deg)", 
         width: "100%",
         height: "100%",
-        filter: "brightness(0) invert(1)",
+      
       }}
     />
   </button>
@@ -49,12 +49,12 @@ const CustomNextArrow = ({ onClick }) => (
     }}
   >
     <img 
-      src="https://static.tildacdn.com/tild3862-3436-4662-a266-656561626361/free-icon-arrow-righ.png" 
+      src="https://static.tildacdn.com/tild3361-6463-4361-a434-653837343833/icons8-----2-100_2.png" 
       alt="Next"
       style={{ 
         width: "100%",
         height: "100%",
-        filter: "brightness(0) invert(1)",
+  
       }}
     />
   </button>
@@ -63,21 +63,21 @@ const CustomNextArrow = ({ onClick }) => (
 // Данные для слайдов
 const slides = [
   {
-    img: "https://static.tildacdn.com/tild6533-3332-4332-b563-633334396539/__14.png",
-    title: "Заголовок 1",
-    description: "Краткое описание первого слайда в несколько строк текста",
+    img: "https://static.tildacdn.com/tild6534-6138-4332-a464-363136383532/1_1.png",
+    title: "ТЕСТ ДРАЙВ АППАРАТА ",
+    description: "В любой точке мира",
     buttonText: "Подробнее"
   },
   {
-    img: "https://static.tildacdn.com/tild3037-3365-4763-b430-333733666432/__15.png",
-    title: "Заголовок 2",
-    description: "Описание второго слайда с важной информацией",
+    img: "https://static.tildacdn.com/tild3666-3964-4138-a232-363363306661/3_1.png",
+    title: "аппарат fly",
+    description: "аппарат для перманентного макияжа",
     buttonText: "Узнать больше"
   },
   {
-    img: "https://static.tildacdn.com/tild3833-3835-4562-a635-383038303763/__17.png",
-    title: "Заголовок 3",
-    description: "Ещё одно описание для демонстрации адаптивности",
+    img: "https://static.tildacdn.com/tild6263-6639-4665-b264-613535353730/2_2.png",
+    title: "icolor в европе",
+    description: "совершай покупки по всему миру",
     buttonText: "Перейти"
   }
 ];
@@ -105,7 +105,7 @@ export default function SimpleSlider() {
         <Slider {...settings}>
           {slides.map((slide, index) => (
             <div key={index} className="slide">
-              <img
+              <img 
                 src={slide.img}
                 alt={`Slide ${index + 1}`}
                 className="slide-image"
