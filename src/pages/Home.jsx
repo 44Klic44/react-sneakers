@@ -28,7 +28,7 @@ function Home({
       <SimpleSlider/>
       <div className="d-flex align-center justify-between  mb-40 home">
         <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все пигменты'}</h1>
-        <div style={{ alignItems: 'center' }} className="search-block d-flex">
+        {/* <div style={{ alignItems: 'center' }} className="search-block d-flex">
           <img  width={25} height={25} src="https://static.tildacdn.com/tild3966-3631-4932-a335-333866306164/free-icon-search-241.png" alt="Search" />
           {searchValue && (
             <img width={10} height={10}
@@ -38,14 +38,10 @@ function Home({
               alt="Clear"
             />
           )}
-          <input 
-            onChange={onChangeSearchInput} 
-            value={searchValue} 
-            placeholder="Поиск..." 
-          />
-        </div>
+       
+        </div> */}
       </div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap render-card">
         {renderItems()}
       </div>
       

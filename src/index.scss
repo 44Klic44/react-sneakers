@@ -93,7 +93,9 @@ background: #ffffff;
 .iconFavorite{margin-left: 10px;
     margin-top: 10px;
   }
-
+.render-card{
+  min-height: 300px;
+}
 
 .overlay{
   position: fixed;
@@ -509,5 +511,6 @@ b{
 }
 
 .home{
+  margin-top: 100px;
   margin-bottom: 100px;
 }

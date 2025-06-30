@@ -131,7 +131,12 @@ function App() {
             onRemove={onRemoveItem} 
           />
         )}
-        <Header onClickCart={() => setCartOpened(true)} />
+        <Header 
+         searchValue={searchValue}
+  setSearchValue={setSearchValue}
+  onChangeSearchInput={onChangeSearchInput}
+  
+   onClickCart={() => setCartOpened(true)} />
         
 
         
