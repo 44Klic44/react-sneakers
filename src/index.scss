@@ -500,6 +500,26 @@ b{
 
 /* Мобильные стили */
 @media (max-width: 768px) {
+
+    .show-on-mobile {
+    display: none !important;
+      
+        background-color: #ebebeb!important;
+        border-radius: 100px!important;
+        text-align: center!important;
+        align-items: center!important;
+   
+  }
+
+  ul li {
+    display: flex;
+    align-items: flex-end;
+     margin-bottom: 0px !important; 
+}
+header img {
+    margin-right: 10px;
+    margin-left: 4px;
+}
 .header{
   padding: 10px;
 }
@@ -533,4 +553,72 @@ b{
 .home{
   margin-top: 100px;
   margin-bottom: 100px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .show-on-mobile {
+    display: block !important;
+  }
+  
+  .mobile-search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .mobile-search-container {
+    background: white;
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mobile-search-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .mobile-search-block input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .mobile-search-close {
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .wrapper {
+    background: #ffffff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    max-width: 1440px;
+    margin: 50px auto;
+    padding-top: 0px;
+}
+
+.drawer {
+  width: 100%;
+}
 }

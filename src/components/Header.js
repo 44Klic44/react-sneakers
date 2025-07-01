@@ -1,13 +1,22 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Route, Routes, Link, Links } from 'react-router-dom';
 import AppContext from '../context';
 
 function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart }) {
   const { cartItems, favorites } = useContext(AppContext);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
 
   const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
   const cartItemsCount = cartItems.length;
   const favoritesCount = favorites.length;
+
+  const handleSearchClick = () => {
+    setShowMobileSearch(!showMobileSearch);
+  };
+
+  const handleCloseMobileSearch = () => {
+    setShowMobileSearch(false);
+  };
 
   return (
     <header className='d-flex justify-between align-center header'>
@@ -21,7 +30,8 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
         </div>
       </Link>
 
-      <div style={{ alignItems: 'center' }} className="search-block d-flex">
+      {/* Десктопная версия поиска */}
+      <div style={{ alignItems: 'center' }} className="search-block d-flex hide-on-mobile">
         <img width={25} height={25} src="https://static.tildacdn.com/tild3966-3631-4932-a335-333866306164/free-icon-search-241.png" alt="Search" />
         {searchValue && (
           <img width={10} height={10}
@@ -36,6 +46,11 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
           value={searchValue} 
           placeholder="Поиск..." 
         />
+      </div>
+
+      {/* Иконка поиска для мобильной версии */}
+      <div className="show-on-mobile mr-20 cu-p" onClick={handleSearchClick}>
+        <img width={25} height={25} src="https://static.tildacdn.com/tild3966-3631-4932-a335-333866306164/free-icon-search-241.png" alt="Search" />
       </div>
 
       <ul className='"headerRight d-flex'>
@@ -62,6 +77,36 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
           </li>
         </Link>
       </ul>
+
+      {/* Мобильное поисковое окно */}
+      {showMobileSearch && (
+        <div className="mobile-search-overlay">
+          <div className="mobile-search-container">
+            <div className="mobile-search-block">
+              <input 
+                onChange={onChangeSearchInput} 
+                value={searchValue} 
+                placeholder="Поиск..." 
+                autoFocus
+              />
+              {searchValue && (
+                <img width={15} height={15}
+                  onClick={() => setSearchValue('')}
+                  className="clear cu-p"
+                  src="https://static.tildacdn.com/tild6135-3630-4532-a330-643539313861/free-icon-font-circl.png"
+                  alt="Clear"
+                />
+              )}
+            </div>
+            <button 
+              className="mobile-search-close"
+              onClick={handleCloseMobileSearch}
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
