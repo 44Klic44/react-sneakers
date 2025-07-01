@@ -45,6 +45,7 @@ background: #ffffff;
 }
 
 .content {
+  padding: 40px;
   min-height: 80vh; /* Минимальная высота контента */
 }
 
@@ -493,9 +494,28 @@ b{
   background: #141414;
   color: white;
 }
+.header{
+  padding: 40px;
+}
 
 /* Мобильные стили */
 @media (max-width: 768px) {
+.header{
+  padding: 10px;
+}
+
+.headerinfo{
+  display: none!important;
+}
+  .render-card{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .content {
+    padding: 10px !important;
+}
+
   .slide-content {
     left: 30px;
     padding-right: 30px;

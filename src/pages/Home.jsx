@@ -24,7 +24,7 @@ function Home({
   };
 
   return (
-    <div className="content p-40">
+    <div className="content ">
       <SimpleSlider/>
       <div className="d-flex align-center justify-between  mb-40 home">
         <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все пигменты'}</h1>

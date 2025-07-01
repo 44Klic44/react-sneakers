@@ -10,11 +10,11 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
   const favoritesCount = favorites.length;
 
   return (
-    <header className='d-flex justify-between align-center p-40'>
+    <header className='d-flex justify-between align-center header'>
       <Link to='/'>
         <div className='d-flex alighn-center headerleft'> 
           <img width={80} height={40} src="https://static.tildacdn.com/tild3438-6135-4463-b365-613830336265/norootpng.webp" alt='logo'/>
-          <div className='"headerinfo'>
+          <div className='headerinfo'>
             <h3 className='text-uppercase'>Профессиональная косметика</h3>
             <p>для перманентного макияжа</p>
           </div> 
