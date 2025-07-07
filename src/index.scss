@@ -395,7 +395,7 @@ b{
   position: absolute;
     top: -8px;
     right: 6px;
-  background: #ff6b6b;
+  background: #ff0000;
  color: white;
     border-radius: 50%;
     width: 15px;
@@ -432,7 +432,9 @@ b{
 
 
 
-
+.show-on-mobile{
+  display: none;
+}
 //CТИЛИ ДЛЯ СЛАЙДЕРА
 .slider-container {
   position: relative;
