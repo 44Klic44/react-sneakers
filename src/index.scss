@@ -500,6 +500,110 @@ b{
   padding: 40px;
 }
 
+
+// КАРТОЧКА ПОПАП
+
+.search-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+}
+
+.search-popup-container {
+  background: white;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-popup-close {
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+  color: #888;
+}
+
+.search-popup-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+
+.search-popup-results {
+
+  
+    .Card_card__K7Qeo {
+      width: 200px !important; 
+      margin: 0px;
+    padding-bottom: 15px;
+    }
+.iconFavorite {
+    
+    opacity: 0;
+}
+  .popup-card-wrapper {
+    width: 200px; // Нужный вам размер
+    margin: 10px;
+    
+    .card {
+      width: 200px !important;
+      padding: 0px 0px 20px 0px !important;
+      margin-bottom: 0 !important;
+      margin-right: 0 !important;
+      
+      &:hover {
+        transform: none !important; // Убираем эффект при наведении в попапе
+        box-shadow: none !important;
+      }
+      
+      img {
+        height: 100px !important; // Размер изображения
+        object-fit: contain;
+      }
+      
+      h5 {
+        font-size: 14px !important;
+        margin: 8px 0 !important;
+      }
+      
+      .cena {
+        font-size: 12px !important;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Мобильные стили */
 @media (max-width: 768px) {
 
@@ -559,12 +663,12 @@ header img {
 
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
-  .hide-on-mobile {
-    display: none !important;
-  }
+  // .hide-on-mobile {
+  //   display: none !important;
+  // }
   
   .show-on-mobile {
-    display: block !important;
+    display: none !important;
   }
   
   .mobile-search-overlay {
@@ -624,3 +728,4 @@ header img {
   width: 100%;
 }
 }
+

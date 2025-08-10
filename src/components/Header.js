@@ -1,10 +1,12 @@
 import { useContext, useState } from 'react';
-import { Route, Routes, Link, Links } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AppContext from '../context';
+import SearchPopup from './SearchPopup';
 
 function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart }) {
-  const { cartItems, favorites } = useContext(AppContext);
+  const { cartItems, favorites, items } = useContext(AppContext);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [showSearchPopup, setShowSearchPopup] = useState(false);
 
   const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
   const cartItemsCount = cartItems.length;
@@ -16,6 +18,16 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
 
   const handleCloseMobileSearch = () => {
     setShowMobileSearch(false);
+  };
+
+  const handleSearchChange = (e) => {
+    onChangeSearchInput(e);
+    setShowSearchPopup(e.target.value.length > 0);
+  };
+
+  const closeSearchPopup = () => {
+    setShowSearchPopup(false);
+    setSearchValue('');
   };
 
   return (
@@ -42,9 +54,10 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
           />
         )}
         <input 
-          onChange={onChangeSearchInput} 
+          onChange={handleSearchChange} 
           value={searchValue} 
           placeholder="Поиск..." 
+          onFocus={() => searchValue && setShowSearchPopup(true)}
         />
       </div>
 
@@ -106,6 +119,15 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
             </button>
           </div>
         </div>
+      )}
+
+      {/* Попап с результатами поиска для десктопа */}
+      {showSearchPopup && (
+        <SearchPopup 
+          items={items} 
+          searchValue={searchValue} 
+          onClose={closeSearchPopup}
+        />
       )}
     </header>
   );

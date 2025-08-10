@@ -135,8 +135,8 @@ function App() {
          searchValue={searchValue}
   setSearchValue={setSearchValue}
   onChangeSearchInput={onChangeSearchInput}
-  
-   onClickCart={() => setCartOpened(true)} />
+  onClickCart={() => setCartOpened(true)}
+   items={items} />
         
 
         
