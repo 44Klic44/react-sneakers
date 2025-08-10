@@ -10,12 +10,12 @@ body {
 }
 
 .wrapper {
-  background: #ffffff;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 20px;
-  max-width: 1440px;
-  margin: 50px auto;
-  padding-top: 100px;
+    background: #ffffff;
+    // box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    max-width: 100%;
+     margin: 0px auto; 
+    padding-top: 48px;
 }
 
 header {
@@ -45,7 +45,7 @@ background: #ffffff;
 }
 
 .content {
-  padding: 40px;
+  padding: 0px;
   min-height: 80vh; /* Минимальная высота контента */
 }
 
@@ -634,7 +634,7 @@ header img {
   }
 
   .content {
-    padding: 10px !important;
+    padding: 0px !important;
 }
 
   .slide-content {
@@ -663,6 +663,7 @@ header img {
   // }
   .search-block{
     padding: 0px;
+    display: none !important;
   }
   .serchmobile{
     display: none;
@@ -732,7 +733,7 @@ header img {
     background: #ffffff;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
     border-radius: 20px;
-    max-width: 1440px;
+   max-width: 100%;
     margin: 50px auto;
     padding-top: 0px;
 }
