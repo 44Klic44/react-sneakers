@@ -497,7 +497,7 @@ b{
   color: white;
 }
 .header{
-  padding: 40px;
+  padding: 20px;
 }
 
 
@@ -511,7 +511,7 @@ b{
   background: white;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-radius: 0 0 10px 10px;
+  border-radius: 10px 10px 10px 10px;
   margin-top: 5px;
 }
 
@@ -522,6 +522,9 @@ b{
 .search-block {
   position: relative;
 }
+.search-popup-close{
+  display: none;
+}
 
 .search-popup-results {
   display: grid;
@@ -530,13 +533,19 @@ b{
   max-height: 60vh;
   overflow-y: auto;
 }
+ ul li {
+  
+     margin-bottom: 0px !important; 
+}
 
-
+.search-popup-header{
+  margin-bottom: 10px;
+}
 .search-popup-results {
 
   
     .Card_card__K7Qeo {
-      width: 200px !important; 
+      width: 240px !important; 
       margin: 0px;
     padding-bottom: 15px;
     }
@@ -580,7 +589,9 @@ b{
 
 
 
-
+ .mobright-korzina {
+    margin-right: 30px ; 
+}
 
 
 
@@ -588,7 +599,9 @@ b{
 
 /* Мобильные стили */
 @media (max-width: 768px) {
-
+.margtop-mob{
+  margin-top: 5px;
+}
     .show-on-mobile {
     display: none !important;
       
@@ -648,7 +661,25 @@ header img {
   // .hide-on-mobile {
   //   display: none !important;
   // }
+  .search-block{
+    padding: 0px;
+  }
+  .serchmobile{
+    display: none;
+  }
+
+  .search-block input{
+    padding: 10px 0px 10px 2px;
+  }
+  .mobright-korzina {
+    margin-right: 10px ; 
+}
+// .search-block input {
   
+//     width: 99px;
+// }
+
+
   .show-on-mobile {
     display: none !important;
   }

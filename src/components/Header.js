@@ -64,8 +64,8 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
       </Link>
 
       {/* Десктопная версия поиска */}
-      <div style={{ alignItems: 'center', position: 'relative' }} className="search-block d-flex hide-on-mobile">
-        <img width={25} height={25} src="https://static.tildacdn.com/tild3966-3631-4932-a335-333866306164/free-icon-search-241.png" alt="Search" />
+      <div  style={{ alignItems: 'center', position: 'relative' }} className="search-block d-flex hide-on-mobile">
+        <img className='serchmobile' width={25} height={25} src="https://static.tildacdn.com/tild3966-3631-4932-a335-333866306164/free-icon-search-241.png" alt="Search" />
         {searchValue && (
           <img width={10} height={10}
             onClick={() => {
@@ -103,7 +103,7 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
       </div>
 
       <ul className='"headerRight d-flex'>
-        <li onClick={onClickCart} className='mr-30 cu-p d-flex align-center'>
+        <li onClick={onClickCart} className=' mobright-korzina cu-p d-flex align-center'>
           <div className='cart-icon-wrapper'>
             <img width={20} height={18} src="https://static.tildacdn.com/tild6537-3430-4262-a161-653339373532/free-icon-font-shopp.png" alt='cart'/>
             {cartItemsCount > 0 && <span className='cart-count'>{cartItemsCount}</span>}
@@ -112,7 +112,7 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
         </li>
 
         <Link to='/favorites'>
-          <li className="mr-20 cu-p d-flex align-center">
+          <li className="mobright-korzina margtop-mob cu-p d-flex align-center">
             <div className='favorites-icon-wrapper'>
               <img width={20} height={18} src="https://static.tildacdn.com/tild3834-3830-4337-b365-333965363034/free-icon-font-heart.png" alt='favorites'/>
               {favoritesCount > 0 && <span className='favorites-count'>{favoritesCount}</span>}
@@ -120,8 +120,8 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
           </li>
         </Link>
 
-        <Link to='/orders'>
-          <li>
+        <Link  to='/orders'>
+          <li className='margtop-mob'>
             <img width={20} height={18} src="https://static.tildacdn.com/tild3234-3035-4661-b132-376636636236/free-icon-user-51158.png" alt='user'/>
           </li>
         </Link>
