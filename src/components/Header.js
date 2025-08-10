@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../context';
 import SearchPopup from './SearchPopup';
@@ -7,6 +7,8 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
   const { cartItems, favorites, items } = useContext(AppContext);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [showSearchPopup, setShowSearchPopup] = useState(false);
+  const searchInputRef = useRef(null);
+  const popupRef = useRef(null);
 
   const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
   const cartItemsCount = cartItems.length;
@@ -25,10 +27,29 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
     setShowSearchPopup(e.target.value.length > 0);
   };
 
+  const handleInputFocus = () => {
+    if (searchValue) {
+      setShowSearchPopup(true);
+    }
+  };
+
   const closeSearchPopup = () => {
     setShowSearchPopup(false);
-    setSearchValue('');
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target) && 
+          searchInputRef.current && !searchInputRef.current.contains(event.target)) {
+        setShowSearchPopup(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className='d-flex justify-between align-center header'>
@@ -43,22 +64,37 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
       </Link>
 
       {/* Десктопная версия поиска */}
-      <div style={{ alignItems: 'center' }} className="search-block d-flex hide-on-mobile">
+      <div style={{ alignItems: 'center', position: 'relative' }} className="search-block d-flex hide-on-mobile">
         <img width={25} height={25} src="https://static.tildacdn.com/tild3966-3631-4932-a335-333866306164/free-icon-search-241.png" alt="Search" />
         {searchValue && (
           <img width={10} height={10}
-            onClick={() => setSearchValue('')}
+            onClick={() => {
+              setSearchValue('');
+              searchInputRef.current?.focus();
+            }}
             className="clear cu-p"
             src="https://static.tildacdn.com/tild6135-3630-4532-a330-643539313861/free-icon-font-circl.png"
             alt="Clear"
           />
         )}
         <input 
-          onChange={handleSearchChange} 
+          ref={searchInputRef}
+          onChange={handleSearchChange}
+          onFocus={handleInputFocus}
           value={searchValue} 
           placeholder="Поиск..." 
-          onFocus={() => searchValue && setShowSearchPopup(true)}
         />
+        
+        {/* Попап с результатами поиска */}
+        {showSearchPopup && (
+          <div ref={popupRef} className="search-popup-container">
+            <SearchPopup 
+              items={items} 
+              searchValue={searchValue} 
+              onClose={closeSearchPopup}
+            />
+          </div>
+        )}
       </div>
 
       {/* Иконка поиска для мобильной версии */}
@@ -119,15 +155,6 @@ function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart 
             </button>
           </div>
         </div>
-      )}
-
-      {/* Попап с результатами поиска для десктопа */}
-      {showSearchPopup && (
-        <SearchPopup 
-          items={items} 
-          searchValue={searchValue} 
-          onClose={closeSearchPopup}
-        />
       )}
     </header>
   );
