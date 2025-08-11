@@ -74,8 +74,8 @@ function Card({
                 className={styles.plus } 
                 onClick={onClickPlus} 
                 src={isItemAdded(id) ? 
-                  "https://static.tildacdn.com/tild6163-6465-4766-b739-333034383036/free-icon-font-check.png" : 
-                  "https://static.tildacdn.com/tild3262-6134-4633-a139-303330626234/free-icon-font-check.png"} 
+                  "https://static.tildacdn.com/tild3564-6637-4563-b263-373431343964/icons8--64_1.png" : 
+                  "https://static.tildacdn.com/tild6566-3838-4734-b862-306535623666/icons8--64.png"} 
                 alt="Add to cart"
               />
             )}

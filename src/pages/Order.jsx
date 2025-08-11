@@ -24,8 +24,8 @@ function Orders() {
 
   return (
     <div className="content ">
-      <div className="d-flex align-center justify-between mb-40">
-        <h1>Мои заказы</h1>
+      <div className="d-flex align-center justify-between mb-40 pl-10">
+        <h1 style={{marginTop: '30px'}}>Мои заказы</h1>
       </div>
 
       {isLoading ? (
@@ -36,7 +36,7 @@ function Orders() {
         </div>
       ) : (
         orders.map((order, index) => (
-          <div key={index} className="mb-40">
+          <div key={index} className="mb-40 pl-10">
             <h2>Заказ #{order.id}</h2>
             <div className="d-flex flex-wrap contain-card">
               {order.items.map((item, itemIndex) => (

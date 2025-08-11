@@ -47,6 +47,10 @@ background: #ffffff;
 .content {
   padding: 0px;
   min-height: 80vh; /* Минимальная высота контента */
+  
+    margin: 0 auto;
+    max-width: 1450px;
+    padding-top: 50px;
 }
 
 .empty-favorites {
@@ -96,6 +100,10 @@ background: #ffffff;
   }
 .render-card{
   min-height: 300px;
+  margin: 0 auto;
+    max-width: 1450px;
+    justify-content: space-around;
+    padding: 10px;
 }
 
 .overlay{
@@ -652,8 +660,11 @@ header img {
 }
 
 .home{
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin: 0 auto;
+    padding: 10px;
+    padding-top: 60px;
+    max-width: 1450px;
+
 }
 
 /* Медиа-запрос для мобильных устройств */
@@ -661,6 +672,10 @@ header img {
   // .hide-on-mobile {
   //   display: none !important;
   // }
+  .slide-description {
+
+    margin-bottom: 132px;
+}
   .search-block{
     padding: 0px;
     display: none !important;

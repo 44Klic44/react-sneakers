@@ -18,6 +18,7 @@ const CustomPrevArrow = ({ onClick }) => (
       cursor: "pointer",
       width: "30px",
       height: "30px",
+       opacity: "0.5",
     }}
   >
     <img 
@@ -46,6 +47,8 @@ const CustomNextArrow = ({ onClick }) => (
       cursor: "pointer",
       width: "30px",
       height: "30px",
+      opacity: "0.5",
+      
     }}
   >
     <img 
