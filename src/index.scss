@@ -43,13 +43,15 @@ background: #ffffff;
     margin: 0;
   }
 }
-
+.paddingleft{
+padding-left: 40px;
+}
 .content {
-  padding: 0px;
+  
   min-height: 80vh; /* Минимальная высота контента */
   
     margin: 0 auto;
-    max-width: 1450px;
+    // max-width: 1450px;
     padding-top: 50px;
 }
 
@@ -641,9 +643,7 @@ header img {
     grid-template-columns: 1fr 1fr;
   }
 
-  .content {
-    padding: 0px !important;
-}
+  
 
   .slide-content {
     left: 30px;
@@ -669,6 +669,14 @@ header img {
 
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
+
+  .paddingleft{
+padding-left: 10px;
+}
+.content {
+   
+    padding-top: 10px;
+}
   // .hide-on-mobile {
   //   display: none !important;
   // }

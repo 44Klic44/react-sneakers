@@ -6,7 +6,7 @@ function Favorites() {
   const { favorites, onAddFavorite, onAddToCart } = useContext(AppContext);
 
   return (
-    <div className="content pl-10">
+    <div className="content paddingleft">
       <div className="d-flex align-center justify-between mb-40 favorite-contain pt-30">
         <h1>Мои закладки</h1>
       </div>
