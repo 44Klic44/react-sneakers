@@ -10,6 +10,7 @@ import Favorites from './pages/Favorites';
 import AppContext from './context';
 import Orders from './pages/Order';
 import SimpleSlider from './components/Slider';
+import Banner from './components/Banner';
 
 function App() {
   const [items, setItems] = useState([]);

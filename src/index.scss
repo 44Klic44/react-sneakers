@@ -766,3 +766,128 @@ padding-left: 10px;
 }
 }
 
+
+
+
+/* Основные стили ICOLOR ACADEMY НАЧАЛО */
+.outer-container {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.hero-container {
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  max-width: 1430px;
+  height: 600px;
+  margin: 0 auto;
+  background-image: url('https://static.tildacdn.com/tild6562-6237-4831-a131-303161643536/Airbrush-Image-Enhan.jpeg');
+  background-size: cover;
+  background-position: 40%;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+.hero-logo {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.1;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+  align-self: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  align-self: flex-start;
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text {
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+}
+
+.hero-button {
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+  background-color: #c5a227;
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 30px 15px;
+    height: 500px;
+    border-radius: 0;
+  }
+  
+  .hero-logo {
+    font-size: 28px;
+  }
+  
+  .hero-text {
+    font-size: 18px;
+  }
+  
+  .hero-button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+/* Медиазапросы для очень маленьких экранов */
+@media (max-width: 480px) {
+  .hero-container {
+    height: 450px;
+    padding: 20px 15px;
+  }
+  
+  .hero-logo {
+    font-size: 24px;
+  }
+  
+  .hero-text {
+    font-size: 16px;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+}
+
+/* Основные стили ICOLOR ACADEMY КОНЕЦ */
