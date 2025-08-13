@@ -11,6 +11,7 @@ import AppContext from './context';
 import Orders from './pages/Order';
 import SimpleSlider from './components/Slider';
 import Banner from './components/Banner';
+import BusinessCard from './components/BusinessCard';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -164,10 +165,11 @@ function App() {
             path="/orders"
             element={<Orders />}
           />
+         
         </Routes>
 
         
-       
+        <BusinessCard></BusinessCard>
       </div>
     </AppContext.Provider>
   );
