@@ -82,7 +82,7 @@ const slides = [
   {
     img: "https://static.tildacdn.com/tild3531-6231-4361-b134-393863326262/Frame_1604.png",
     title: "Иглы для перманентного макияжа ICOLOR",
-    description: "Профессиональные иглы для татуажа\n бровей, губ и век.",
+    description: "Профессиональные иглы для \n  татуажа бровей, губ и век.",
     buttonText: "Подробнее",
       buttonLink: "https://ru.icolorpmu.com/cartridge-new"
   }

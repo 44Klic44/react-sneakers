@@ -495,10 +495,10 @@ b{
   color: rgb(0, 0, 0);
   border: 1px solid #141414;
 
-  padding: 12px 30px;
+  padding: 12px 68px;
   font-size: 1rem;
   color: #141414;
-  border-radius: 30px;
+  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -506,6 +506,12 @@ b{
 .slide-button:hover {
   background: #141414;
   color: white;
+}
+
+.slick-arrow {
+
+  width: 50px!important;
+  height: 50px!important;
 }
 .header{
   padding: 20px;
@@ -669,8 +675,15 @@ header img {
 
 }
 
+.home h1{
+    margin-bottom: 30px;
+  }
+
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
+  .home h1{
+    margin-bottom: 10px;
+  }
 
   .paddingleft{
 padding-left: 10px;
@@ -983,3 +996,18 @@ li:hover {
 }
 
 /* Основные стили FOOTER КОНЕЦ */
+
+
+@media (max-width: 768px) {
+  .slide {
+    height: 500px; /* чаще нужно меньше высоту */
+  }
+
+  .slide-image {
+    
+   object-position: 48% 20%;
+  }
+   .slick-arrow {
+    display: none !important;
+  }
+}
