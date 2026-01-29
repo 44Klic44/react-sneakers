@@ -66,22 +66,25 @@ const CustomNextArrow = ({ onClick }) => (
 // Данные для слайдов
 const slides = [
   {
-    img: "https://static.tildacdn.com/tild6534-6138-4332-a464-363136383532/1_1.png",
-    title: "ТЕСТ ДРАЙВ АППАРАТА ",
-    description: "В любой точке мира",
-    buttonText: "Подробнее"
+    img: "https://static.tildacdn.com/tild3032-3762-4762-b463-363963313438/Group_1267.png",
+    title: "Двухкислотный ремувер blur 2.0 ",
+    description: "Эффективно удаляет весь цветовой спектр \n пигментов без «съедания» кожи.",
+    buttonText: "Подробнее",
+      buttonLink: "https://ru.icolorpmu.com/blur-new"
   },
   {
-    img: "https://static.tildacdn.com/tild3666-3964-4138-a232-363363306661/3_1.png",
-    title: "аппарат fly",
-    description: "аппарат для перманентного макияжа",
-    buttonText: "Узнать больше"
+    img: "https://static.tildacdn.com/tild3538-3237-4239-a237-613563346338/Group_824.png",
+    title: "Пигменты для камуфлирования и микропигментации ареолы ",
+    description: "Совершенство - это история, которая пускает свои корни в самую глубь человеческого естества и сквозь заботу о внешности прорастает прямо в сердце. ",
+    buttonText: "Подробнее",
+      buttonLink: "https://ru.icolorpmu.com/skin-n-areola"
   },
   {
-    img: "https://static.tildacdn.com/tild6263-6639-4665-b264-613535353730/2_2.png",
-    title: "icolor в европе",
-    description: "совершай покупки по всему миру",
-    buttonText: "Перейти"
+    img: "https://static.tildacdn.com/tild3531-6231-4361-b134-393863326262/Frame_1604.png",
+    title: "Иглы для перманентного макияжа ICOLOR",
+    description: "Профессиональные иглы для татуажа\n бровей, губ и век.",
+    buttonText: "Подробнее",
+      buttonLink: "https://ru.icolorpmu.com/cartridge-new"
   }
 ];
 
@@ -114,10 +117,16 @@ export default function SimpleSlider() {
                 className="slide-image"
               />
               <div className="slide-content">
-                <h2 className="slide-title">{slide.title}</h2>
-                <p className="slide-description">{slide.description}</p>
-                <button className="slide-button">{slide.buttonText}</button>
-              </div>
+  <h2 className="slide-title">{slide.title}</h2>
+
+  <p className="slide-description">
+    {slide.description}
+  </p>
+
+  <a href={slide.buttonLink} className="slide-button">
+    {slide.buttonText}
+  </a>
+</div>
             </div>
           ))}
         </Slider>

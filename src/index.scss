@@ -52,7 +52,7 @@ padding-left: 40px;
   
     margin: 0 auto;
     // max-width: 1450px;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 .empty-favorites {
@@ -454,7 +454,7 @@ b{
 
 .slide {
   position: relative;
-  height: 500px;
+  height: 600px;
   overflow: hidden;
 }
 
@@ -482,6 +482,7 @@ b{
 }
 
 .slide-description {
+   white-space: pre-line;
   font-size: 1.2rem;
   margin-bottom: 2rem;
   line-height: 1;
@@ -656,6 +657,7 @@ header img {
   
   .slide-description {
     font-size: 1rem;
+     white-space: pre-line;
   }
 }
 
@@ -681,7 +683,7 @@ padding-left: 10px;
   //   display: none !important;
   // }
   .slide-description {
-
+     white-space: pre-line;
     margin-bottom: 132px;
 }
   .search-block{

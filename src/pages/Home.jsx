@@ -22,7 +22,7 @@ function Home({
       <SimpleSlider/>
      
       <div className="d-flex align-center justify-between mb-40 home">
-        <h1>Все пигменты</h1>
+        <h1>Каталог пигментов</h1>
       </div>
       <div className="d-flex flex-wrap render-card">
         {renderItems()}
