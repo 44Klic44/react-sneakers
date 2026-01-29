@@ -150,7 +150,7 @@ h5{
 span{
   font-size: 13px;
   opacity: 0.5;
-  text-transform: uppercase;
+  
 }
 
 .cartItem{
@@ -1010,4 +1010,16 @@ li:hover {
    .slick-arrow {
     display: none !important;
   }
+}
+
+
+.order-head{
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.breadcrumbs {
+  text-transform: none !important;
+  margin-top: 15px;
 }

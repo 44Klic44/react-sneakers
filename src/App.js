@@ -12,6 +12,7 @@ import Orders from './pages/Order';
 import SimpleSlider from './components/Slider';
 import Banner from './components/Banner';
 import BusinessCard from './components/BusinessCard';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -168,7 +169,7 @@ function App() {
          
         </Routes>
 
-        
+        <ScrollToTop />
         <BusinessCard></BusinessCard>
       </div>
     </AppContext.Provider>

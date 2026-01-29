@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Card from '../components/Card';
 import AppContext from '../context';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 function Orders() {
   const { onAddToFavorite, onAddToCart } = React.useContext(AppContext);
@@ -24,8 +25,11 @@ function Orders() {
 
   return (
     <div className="content ">
-      <div className="d-flex align-center justify-between mb-40 paddingleft">
-        <h1 style={{marginTop: '30px'}}>Мои заказы</h1>
+              
+
+      <div className="d-flex paddingleft order-head">
+        <Breadcrumbs />
+        <h1 style={{marginTop: '20px'}}>Мои заказы</h1>
       </div>
 
       {isLoading ? (
