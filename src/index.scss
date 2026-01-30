@@ -665,11 +665,11 @@ header img {
   }
   
   .slide-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   
   .slide-description {
-    font-size: 1rem;
+    font-size: 15px;
      white-space: pre-line;
   }
 }
@@ -690,6 +690,9 @@ header img {
 @media (max-width: 768px) {
   .home h1{
     margin-bottom: 10px;
+  }
+  h1{
+    font-size: 28px;
   }
 
   .paddingleft{
@@ -1016,6 +1019,10 @@ li:hover {
   }
    .slick-arrow {
     display: none !important;
+  }
+
+  .cena{
+    margin-left: 10px;
   }
 }
 

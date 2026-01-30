@@ -46,18 +46,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 800px) {
-  .card{
-    border: 1px solid #f8f8f8;
-    padding: 0px 0px 20px 0px;
-    width: 47vw;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    justify-content: space-between;
-    margin-right: 5px;
-    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
-}
+
 
 
 
@@ -73,3 +62,26 @@ max-width: 200px;
   overflow: hidden;
 }
 
+@media (max-width: 800px) {
+  .card{
+    border: 1px solid #f8f8f8;
+    padding: 0px 0px 20px 0px;
+    width: 47vw;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-right: 5px;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.shortDescription {
+  font-size: 12px;
+ 
+  margin: 0px 0 20px 10px;
+}
+
+h5{
+font-size: 14px;
+
+}
+}

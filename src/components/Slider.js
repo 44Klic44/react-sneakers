@@ -68,7 +68,7 @@ const slides = [
   {
     img: "https://static.tildacdn.com/tild3032-3762-4762-b463-363963313438/Group_1267.png",
     title: "Двухкислотный ремувер blur 2.0 ",
-    description: "Эффективно удаляет весь цветовой спектр \n пигментов без «съедания» кожи.",
+    description: "Эффективно удаляет весь цветовой спектр пигментов без «съедания» кожи.",
     buttonText: "Подробнее",
       buttonLink: "https://ru.icolorpmu.com/blur-new"
   },
