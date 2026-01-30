@@ -64,7 +64,7 @@ function Card({
             </div>
           )}
 
-          <img width='100%' height='100%' src={imageUrl} alt={title} />
+          <img  className={styles.image} width='100%' height='100%' src={imageUrl} alt={title} />
           <h5 className='cena'>{title}</h5>
           <p className={styles.shortDescription}>
               {shortDescription}
