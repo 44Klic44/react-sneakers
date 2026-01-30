@@ -10,17 +10,22 @@ const HeroBanner = () => {
         
         {/* Логотип в верхнем левом углу */}
         <div className="hero-logo">
-          iСolor Academy
+          BASIC <br/>COURSE.PRO
+          <p className="hero-text">
+            БАЗОВЫЙ КУРС ПЕРМАНЕНТНОГО <br/>
+            МАКИЯЖА ICOLOR
+          </p>
         </div>
         
         {/* Текст и кнопка в нижнем левом углу */}
         <div className="hero-content">
-          <p className="hero-text">
-            Курсы по перманентному макияжу онлайн и оффлайн.<br/>
-            Обучаем на руcском, английском и латышском языках.
+           <p className="hero-desc">
+            Фундамент, на котором строится <br/>
+            успешная карьера мастера.
           </p>
           <button className="hero-button">
-            Обучение в iColor 
+            <a href='https://ru.icolorpmu.com/basic-course'>Записаться на курс</a>
+            
           </button>
         </div>
       </div>

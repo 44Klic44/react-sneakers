@@ -809,7 +809,7 @@ padding-left: 10px;
   max-width: 1430px;
   height: 600px;
   margin: 0 auto;
-  background-image: url('https://static.tildacdn.com/tild6562-6237-4831-a131-303161643536/Airbrush-Image-Enhan.jpeg');
+  background-image: url('https://static.tildacdn.com/tild3636-3261-4366-a236-323134333463/u4164998227_a_mockup.png');
   background-size: cover;
   background-position: 40%;
   padding: 40px;
@@ -832,10 +832,10 @@ padding-left: 10px;
 
 .hero-logo {
   color: #fff;
-  font-size: 32px;
+  font-size:70px;
   font-weight: bold;
-  line-height: 1.1;
-  text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+  line-height: 1;
+  max-width: 470px;
   align-self: flex-start;
   position: relative;
   z-index: 1;
@@ -850,27 +850,38 @@ padding-left: 10px;
 
 .hero-text {
   color: #fff;
-  font-size: 22px;
-  line-height: 1.5;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-top: 5px;
   margin-bottom: 25px;
-  text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+  
+}
+
+.hero-desc{
+color: #fff;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 200;
 }
 
 .hero-button {
   background-color: #ffffff;
   color: #000;
   border: none;
-  padding: 15px 30px;
+  padding: 15px 90px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 400;
   cursor: pointer;
   border-radius: 4px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
   transition: background-color 0.3s;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .hero-button:hover {
-  background-color: #fdfdfd6f;
+  background-color: #0000006f;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 /* Медиазапросы для мобильных устройств */
@@ -890,20 +901,27 @@ padding-left: 10px;
   }
   
   .hero-button {
-    padding: 12px 24px;
+    padding: 12px 54px;
     font-size: 16px;
   }
+
+  .hero-desc{
+
+  font-size: 16px;
+ 
+}
 }
 
 /* Медиазапросы для очень маленьких экранов */
 @media (max-width: 480px) {
   .hero-container {
-    height: 450px;
+    height: 500px;
     padding: 20px 15px;
   }
   
   .hero-logo {
-    font-size: 24px;
+    font-size: 43px;
+    margin-top: 20px;
   }
   
   .hero-text {
