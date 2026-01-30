@@ -7,9 +7,12 @@ function Card({
   id, 
   imageUrl, 
   price, 
-  title, 
+  title,
+  shortDescription,
+  description, 
   loading = false, 
-  isOrderItem = false // Новый пропс
+  isOrderItem = false, // Новый пропс
+  onOpenPopup
 }) {
   const { 
     isItemAdded, 
@@ -19,16 +22,18 @@ function Card({
     setCartOpened 
   } = useContext(AppContext);
   
-  const onClickPlus = () => {
+  const onClickPlus = (e) => {
+    e.stopPropagation();
     onAddToCart({ id, imageUrl, price, title });
   };
 
-  const onClickFavorite = () => {
+  const onClickFavorite = (e) => {
+    e.stopPropagation();
     onAddFavorite({ id, imageUrl, price, title });
   };
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={() => onOpenPopup({ id, title, imageUrl, price, description })} >
       {loading ? (
         <ContentLoader 
           speed={2}
@@ -61,6 +66,9 @@ function Card({
 
           <img width='100%' height='100%' src={imageUrl} alt={title} />
           <h5 className='cena'>{title}</h5>
+          <p className={styles.shortDescription}>
+              {shortDescription}
+          </p>
           <div className='d-flex justify-between align-center'>
             <div className='d-flex flex-column cena'>
               <span >Цена:</span>
