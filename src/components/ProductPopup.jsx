@@ -5,16 +5,41 @@ function ProductPopup({ product, onClose }) {
 
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
-        <img src={product.imageUrl} alt={product.title} />
-        <h2>{product.title}</h2>
-        <b>{product.price} ₽</b>
+      <div
+        className={styles.popup}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Кнопка закрытия */}
+        <button className={styles.close} onClick={onClose}>
+          ✕
+        </button>
 
-        <p className={styles.description}>
-          {product.description}
-        </p>
+        <div className={styles.content}>
+          {/* Левая часть — картинка */}
+          <div className={styles.imageWrapper}>
+            <img
+              src={product.imageUrl}
+              alt={product.title}
+            />
+          </div>
 
-        <button onClick={onClose}>Закрыть</button>
+          {/* Правая часть — текст */}
+          <div className={styles.info}>
+            <h2>{product.title}</h2>
+
+            <b className={styles.price}>
+              {product.price} ₽
+            </b>
+
+            <p className={styles.description}>
+              {product.description}
+            </p>
+
+            {/* <button className={styles.buy}>
+              Купить
+            </button> */}
+          </div>
+        </div>
       </div>
     </div>
   );
