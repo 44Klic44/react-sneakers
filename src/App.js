@@ -123,7 +123,8 @@ function App() {
       onAddFavorite,
       onAddToCart,
       setCartOpened,
-      setCartItems
+      setCartItems,
+       onOpenProductPopup: setPopupProduct
     }}>
       <div className="wrapper clear">
         {cartOpened && (

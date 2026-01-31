@@ -12,15 +12,15 @@ function Card({
   description, 
   loading = false, 
   isOrderItem = false, // Новый пропс
-  onOpenPopup
+  onOpenPopup,
+  
 }) {
   const { 
     isItemAdded, 
     isItemFavorited, 
     onAddFavorite, 
     onAddToCart, 
-    setCartOpened 
-  } = useContext(AppContext);
+    setCartOpened } = useContext(AppContext);
   
   const onClickPlus = (e) => {
     e.stopPropagation();

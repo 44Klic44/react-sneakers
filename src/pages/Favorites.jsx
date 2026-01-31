@@ -4,7 +4,7 @@ import AppContext from '../context';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 function Favorites() {
-  const { favorites, onAddFavorite, onAddToCart } = useContext(AppContext);
+  const { favorites, onAddFavorite, onAddToCart,  onOpenProductPopup } = useContext(AppContext);
 
   return (
     <div className="content paddingleft">
@@ -23,6 +23,7 @@ function Favorites() {
               title={item.title}
               price={item.price}
               imageUrl={item.imageUrl}
+              onOpenPopup={() => onOpenProductPopup(item)}
             />
           ))}
         </div>

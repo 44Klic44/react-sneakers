@@ -1,12 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-
 import Card from '../components/Card';
 import AppContext from '../context';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 function Orders() {
-  const { onAddToFavorite, onAddToCart } = React.useContext(AppContext);
+  const { onOpenProductPopup } = React.useContext(AppContext);
   const [orders, setOrders] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -24,9 +23,7 @@ function Orders() {
   }, []);
 
   return (
-    <div className="content ">
-              
-
+    <div className="content">
       <div className="d-flex paddingleft order-head">
         <Breadcrumbs />
         <h1 style={{marginTop: '20px'}}>Мои заказы</h1>
@@ -48,7 +45,8 @@ function Orders() {
                   key={itemIndex} 
                   loading={false} 
                   {...item}
-                  isOrderItem={true} // Вот этот пропс скроет кнопки
+                  isOrderItem={true} // скрывает кнопки
+                  onOpenPopup={() => onOpenProductPopup(item)} // добавлено
                 />
               ))}
             </div>

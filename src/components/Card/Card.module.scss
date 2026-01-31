@@ -63,7 +63,13 @@ max-width: 200px;
 }
 
 @media (max-width: 800px) {
+
+  .card:hover {
+ 
+  transform: translateY(0px);
+}
   .card{
+    
     border: 1px solid #f8f8f8;
     padding: 0px 0px 20px 0px;
     width: 47vw;
