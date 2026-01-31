@@ -1,36 +1,49 @@
 import React from 'react';
-import Card from './Card'; // Добавлен импорт Card
 
-function SearchPopup({ items, searchValue, onClose }) {
+function SearchPopup({ items, searchValue, onClose, onOpenProductPopup }) {
   const filteredItems = items.filter(item => 
-    item.title.toLowerCase().includes(searchValue.toLowerCase())
+    item && item.title && item.title.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   if (!searchValue || filteredItems.length === 0) return null;
 
+  const handleItemClick = (item) => {
+    if (onClose) onClose();
+    
+    if (onOpenProductPopup && typeof onOpenProductPopup === 'function') {
+      onOpenProductPopup(item);
+    }
+  };
+
   return (
-    <div className="search-popup-overlay">
-      <div className="search-popup-container">
-        <div className="search-popup-header">
-          <h3>Результаты поиска: "{searchValue}"</h3>
-          <button onClick={onClose} className="search-popup-close">
-            ×
-          </button>
-        </div>
-        <div className="search-popup-results">
-          {filteredItems.map(item => (
-            <Card
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              price={item.price}
-              imageUrl={item.imageUrl}
-            />
-          ))}
-        </div>
+    <div className="search-dropdown">
+      <div className="search-dropdown-header">
+        <span className="search-results-count">Найдено: {filteredItems.length}</span>
+      </div>
+      <div className="search-dropdown-results">
+        {filteredItems.slice(0, 5).map(item => (
+          <div 
+            key={item.id} 
+            className="search-dropdown-item"
+            onClick={() => handleItemClick(item)}
+          >
+            <div className="search-dropdown-item-image">
+              <img src={item.imageUrl} alt={item.title} />
+            </div>
+            <div className="search-dropdown-item-info">
+              <div className="search-dropdown-item-title">{item.title}</div>
+              <div className="search-dropdown-item-price">{item.price} руб.</div>
+            </div>
+          </div>
+        ))}
+        {filteredItems.length > 5 && (
+          <div className="search-dropdown-more">
+            И еще {filteredItems.length - 5} результатов...
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-export default SearchPopup; // Добавлен экспорт по умолчанию
+export default SearchPopup;

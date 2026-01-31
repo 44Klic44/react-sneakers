@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AppContext from '../context';
 import SearchPopup from './SearchPopup';
 
-function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart }) {
+function Header({ searchValue, setSearchValue, onChangeSearchInput, onClickCart,   onOpenProductPopup }) {
   const { cartItems, favorites, items } = useContext(AppContext);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [showSearchPopup, setShowSearchPopup] = useState(false);

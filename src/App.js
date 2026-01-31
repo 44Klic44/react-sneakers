@@ -9,11 +9,8 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import AppContext from './context';
 import Orders from './pages/Order';
-import SimpleSlider from './components/Slider';
-import Banner from './components/Banner';
-import { BusinessCard } from './components/BusinessCard';
-
 import ScrollToTop from './components/ScrollToTop';
+import { BusinessCard } from './components/BusinessCard';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -22,6 +19,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [cartOpened, setCartOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [popupProduct, setPopupProduct] = useState(null); // Добавляем это состояние
 
   React.useEffect(() => {
     async function fetchData() {
@@ -136,25 +134,23 @@ function App() {
           />
         )}
         <Header 
-         searchValue={searchValue}
-  setSearchValue={setSearchValue}
-  onChangeSearchInput={onChangeSearchInput}
-  onClickCart={() => setCartOpened(true)}
-   items={items} />
-        
-
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          onChangeSearchInput={onChangeSearchInput}
+          onClickCart={() => setCartOpened(true)}
+          items={items}
+          onOpenProductPopup={setPopupProduct} // Передаем функцию
+        />
         
         <Routes>
           <Route
             path="/"
             element={
-              
               <Home
                 items={items}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                onChangeSearchInput={onChangeSearchInput}
                 isLoading={isLoading}
+                onOpenProductPopup={setPopupProduct} // Передаем функцию
+                popupProduct={popupProduct}
               />
             }
           />
@@ -162,16 +158,14 @@ function App() {
             path="/favorites"
             element={<Favorites />}
           />
-
-           <Route
+          <Route
             path="/orders"
             element={<Orders />}
           />
-         
         </Routes>
 
         <ScrollToTop />
-        <BusinessCard></BusinessCard>
+        <BusinessCard />
       </div>
     </AppContext.Provider>
   );
