@@ -11,7 +11,8 @@ import AppContext from './context';
 import Orders from './pages/Order';
 import SimpleSlider from './components/Slider';
 import Banner from './components/Banner';
-import BusinessCard from './components/BusinessCard';
+import { BusinessCard } from './components/BusinessCard';
+
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {

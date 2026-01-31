@@ -1,0 +1,195 @@
+.footer {
+  background: #131313; /* Темный фон на всю ширину */
+  color: #ffffff; /* Белый текст */
+  padding: 60px 0 40px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.container {
+  max-width: 1430px; /* Максимальная ширина контейнера */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* GRID */
+.inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+
+  @media (max-width: 1200px) {
+    gap: 40px;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* BRAND */
+.brand {
+  max-width: 400px;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.contacts {
+  .address, .details {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #cccccc; /* Светло-серый для основного текста */
+
+    strong {
+      color: #ffffff; /* Белый для жирного текста */
+      font-weight: 600;
+    }
+  }
+}
+
+/* COLUMNS - Desktop version */
+.column {
+  position: relative;
+
+  .desktopTitle {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    color: #ffffff;
+  }
+
+  .desktopList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 14px;
+
+      a {
+        font-size: 14px;
+        color: #cccccc; /* Светло-серый для ссылок */
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #ffffff; /* Белый при наведении */
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* Mobile Accordion */
+.mobileAccordion {
+  display: none;
+}
+
+/* Chevron Icon */
+.chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  color: #999999;
+  
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+/* Mobile version */
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px 0 30px;
+  }
+  
+  .column {
+    border-bottom: 1px solid #333333; /* Темная граница */
+    padding: 15px 0;
+    
+    .desktopTitle,
+    .desktopList {
+      display: none;
+    }
+    
+    .mobileAccordion {
+      display: block;
+      width: 100%;
+      
+      .accordionHeader {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        color: #ffffff;
+        padding: 0;
+        cursor: pointer;
+        text-align: left;
+
+        h4 {
+          margin: 0;
+          font-weight: 600;
+          font-size: 16px;
+          color: #ffffff;
+        }
+      }
+
+      .accordionContent {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        
+        &.open {
+          max-height: 400px;
+          margin-top: 15px;
+        }
+
+        .mobileList {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            margin-bottom: 12px;
+
+            a {
+              font-size: 14px;
+              color: #cccccc;
+              text-decoration: none;
+              transition: color 0.3s ease;
+              display: block;
+
+              &:hover {
+                color: #ffffff;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
