@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Profitkit — React SPA интернет-магазин
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React приложение интернет-магазина товаров для перманентного макияжа и пигментов 🛍️
 
-## Available Scripts
+## 📌 Обзор проекта
+Одностраничное приложение (SPA), разработанное на React, представляющее собой интернет-магазин для продажи пигментов и сопутствующих товаров для перманентного макияжа.  
+Проект демонстрирует работу с каталогом товаров, корзиной, API, анимациями и современными подходами к построению frontend-приложений.
 
-In the project directory, you can run:
+## 🌐 Live Demo
+https://44Klic44.github.io/Profitkit/#/
 
-### `npm start`
+## 🛠️ Стек технологий
+- **React** (функциональные компоненты)
+- **React Hooks** (`useState`, `useEffect`)
+- **React Router** — SPA навигация
+- **REST API** — получение данных о товарах
+- **CSS / SCSS** — стилизация интерфейса
+- **Анимации UI** — предзагрузка товаров и плавные переходы
+- **Работа с состоянием** — управление корзиной и каталогом
+- **GitHub Pages** — деплой проекта
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 💡 Функциональность
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📦 Каталог товаров
+- Динамическая загрузка товаров из API
+- Отображение изображений, названий, цен и описаний
+- Фильтрация и удобная навигация по каталогу
 
-### `npm test`
+### 🛒 Корзина покупок
+- Добавление товаров в корзину
+- Удаление товаров из корзины
+- Изменение количества товаров
+- Автоматический подсчет общей стоимости заказа
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🔄 SPA-навигация
+- Переходы между страницами без перезагрузки
+- Использование React Router
+- Удобная структура маршрутов
 
-### `npm run build`
+### ⏳ UX и анимации
+- Анимация предварительной загрузки товаров
+- Плавные переходы между компонентами
+- Улучшенный пользовательский опыт
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🔌 Работа с API
+- Асинхронные HTTP-запросы (fetch / axios)
+- Обработка состояния загрузки и ошибок
+- Интеграция данных из внешнего источника
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Установка и запуск проекта
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/44Klic44/react-sneakers.git
+cd react-sneakers
+npm install
+npm start
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🎯 Цель проекта
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Проект создан для демонстрации навыков разработки React-приложений, работы с API, управления состоянием, построения SPA и реализации пользовательского интерфейса интернет-магазина.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🧑‍💻 Автор
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Frontend / React Developer
+GitHub: https://github.com/44Klic44
